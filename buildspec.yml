@@ -1,0 +1,18 @@
+version: 0.1
+phases:
+  pre_build:
+    commands:
+      - set
+      - echo "authenticate to Amazon ECR(cn-north-1)"
+      - codebuild/bin/bjs_ecr_auth.sh
+  build:
+    commands:
+      - docker pull amazonlinux:latest
+      - docker tag amazonlinux:latest 937788672844.dkr.ecr.cn-north-1.amazonaws.com.cn/amazonlinux:latest
+      - docker push 937788672844.dkr.ecr.cn-north-1.amazonaws.com.cn/amazonlinux:latest
+  post_build:
+    commands:
+      - echo "post_build phase"
+artifacts:
+  # files: 
+  discard-paths: yes
