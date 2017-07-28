@@ -17,4 +17,4 @@ rm -f ak.blob sk.blob
 #echo $ak
 #echo $sk
 
-$(AWS_ACCESS_KEY_ID=$ak AWS_SECRET_ACCESS_KEY=$sk aws --region=cn-north-1 ecr get-login --no-include-email)
+$(AWS_ACCESS_KEY_ID=$ak AWS_SECRET_ACCESS_KEY=$sk aws --region=cn-north-1 ecr get-login)
